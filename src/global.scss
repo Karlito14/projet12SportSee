@@ -24,3 +24,14 @@ ol,
 ul {
   list-style: none;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .content {
+    display: flex;
+    flex: auto;
+  }
+}
