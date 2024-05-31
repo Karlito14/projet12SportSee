@@ -34,4 +34,22 @@ ul {
     display: flex;
     flex: auto;
   }
+
+  .main {
+    padding: 3rem 5rem;
+
+    &__hello {
+      font-size: 4rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+
+      &__name {
+        color: variables.$color-red;
+      }
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+  }
 }
