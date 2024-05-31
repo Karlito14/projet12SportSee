@@ -1,5 +1,5 @@
 .container {
-    display: grid;
+    //display: grid;
 
     &__title {
         margin-bottom: 3rem;
@@ -9,7 +9,6 @@
     &__list {
         display: flex;
         justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
+        
     }
 }

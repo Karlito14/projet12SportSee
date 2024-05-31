@@ -1,5 +1,5 @@
-export const Error = () => {
-    return (
-        <p>Page error</p>
-    )
-}
+import { Error } from '../../components/Error/Error';
+
+export const ErrorPage = () => {
+  return <Error />;
+};

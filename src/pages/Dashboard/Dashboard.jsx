@@ -5,7 +5,7 @@ import style from './style.module.scss';
 import { USER_MAIN_DATA } from '../../__mock__/data.js';
 
 export const Dashboard = () => {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState();
   const { id } = useParams();
 
   console.log(user);

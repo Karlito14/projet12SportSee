@@ -10,7 +10,7 @@ export class ApiUser {
       `http://localhost:3000/user/${userId}/activity`
     );
     const activity = await response.json();
-    return activity;
+    return activity.data;
   }
 
   static async getSessions(userId) {
@@ -18,7 +18,7 @@ export class ApiUser {
       `http://localhost:3000/user/${userId}/average-sessions`
     );
     const sessions = await response.json();
-    return sessions;
+    return sessions.data;
   }
 
   static async getPerformance(userId) {
@@ -26,6 +26,6 @@ export class ApiUser {
       `http://localhost:3000/user/${userId}/performance`
     );
     const performance = await response.json();
-    return performance;
+    return performance.data;
   }
 }

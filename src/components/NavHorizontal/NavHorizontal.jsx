@@ -1,5 +1,6 @@
 import style from './style.module.scss';
 import logo from '../../assets/logo.png';
+import { Link } from 'react-router-dom';
 
 export const NavHorizontal = () => {
   return (
@@ -12,7 +13,7 @@ export const NavHorizontal = () => {
       <nav className={style.nav_horizontal__nav}>
         <ul className={style.nav_horizontal__nav__list}>
           <li>
-            <a href="#">Accueil</a>
+            <Link to="/">Accueil</Link>
           </li>
           <li>
             <a href="#">Profil</a>
