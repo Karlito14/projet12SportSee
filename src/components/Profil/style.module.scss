@@ -1,0 +1,19 @@
+.link {
+    display: block;
+    margin: 4rem;
+    text-align: center;
+    transition: all 0.4s;
+    color: #333;
+    font-weight: 500;
+
+    &:hover {
+        scale: 1.1;
+    }
+}
+
+.content {
+    justify-self: flex-end;
+    &__img {
+        width: 150px;
+    }
+}

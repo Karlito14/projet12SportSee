@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom';
 import { NavHorizontal } from './components/NavHorizontal/NavHorizontal';
 import { NavVertical } from './components/NavVertical/NavVertical';
 
@@ -10,8 +11,7 @@ export function App() {
       <div className='content'>
         <NavVertical />
         <main className='main'>
-          <h2 className='main__hello'>Bonjour <span className='main__hello__name'>Thomas</span></h2>
-          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+          <Outlet />
         </main>
       </div>
     </div>

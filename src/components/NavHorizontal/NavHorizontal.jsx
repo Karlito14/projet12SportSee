@@ -18,7 +18,7 @@ export const NavHorizontal = () => {
             <a href="#">Profil</a>
           </li>
           <li>
-            <a href="#">Réglage</a>
+            <a href="#">Réglages</a>
           </li>
           <li>
             <a href="#">Comunauté</a>
