@@ -10,19 +10,13 @@ export const Home = () => {
     setUsers(USER_MAIN_DATA);
   }, []);
 
-  console.log(users);
   return (
     <div className={style.container}>
       <h2 className={style.container__title}>Sélectionnez votre sportif</h2>
       <ul className={style.container__list}>
         {users.length > 0 &&
-          users.map((user) => {
-            return (
-              <li key={user.id}>
-                <Profil user={user} />
-              </li>
-            );
-          })}
+          users.map((user) =><li key={user.id}><Profil user={user} /></li>)
+        }
       </ul>
     </div>
   );

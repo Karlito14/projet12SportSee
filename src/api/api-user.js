@@ -2,7 +2,7 @@ export class ApiUser {
   static async fetchUser(userId) {
     const response = await fetch(`http://localhost:3000/user/${userId}`);
     const user = await response.json();
-    return user;
+    return user.data;
   }
 
   static async getActivity(userId) {
