@@ -2,17 +2,15 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ApiUser } from '../../api/api-user.js';
 import style from './style.module.scss';
-import { USER_MAIN_DATA } from '../../__mock__/data.js';
+import { NutritionalList } from '../../components/NutritionalList/NutritionalList.jsx';
 
 export const Dashboard = () => {
   const [user, setUser] = useState();
   const { id } = useParams();
 
-  console.log(user);
-
   const getUser = async () => {
     try {
-      const user = (await ApiUser.fetchUser(id)) || USER_MAIN_DATA[0];
+      const user = await ApiUser.fetchUser(id);
       setUser(user);
     } catch (error) {
       console.error(error.message);
@@ -21,6 +19,7 @@ export const Dashboard = () => {
 
   useEffect(() => {
     getUser();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -32,6 +31,10 @@ export const Dashboard = () => {
         </span>
       </h2>
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+      <div className={style.content}>
+        <div></div>
+        {user && <NutritionalList list={user.keyData} />}
+      </div>
     </>
   );
 };

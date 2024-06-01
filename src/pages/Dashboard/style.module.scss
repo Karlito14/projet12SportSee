@@ -9,3 +9,11 @@
         color: variables.$color-red;
     }
 }
+
+.content {
+    display: flex;
+
+    & > div:first-child {
+        width: 90%;
+    }
+}

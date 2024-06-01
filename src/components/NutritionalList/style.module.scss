@@ -1,0 +1,12 @@
+.container {
+  width: 30%;
+
+  &__list {
+    &__item {
+      margin: 2rem 0;
+      padding: 2rem;
+      background-color: #fbfbfb;
+      border-radius: 10px;
+    }
+  }
+}
