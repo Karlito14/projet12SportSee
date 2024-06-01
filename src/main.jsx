@@ -10,9 +10,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path='/' element={<Home />}></Route>
-        <Route path='/user/:id' element={<Dashboard />}></Route>
-        <Route path='*' element={<ErrorPage />}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/user/:id" element={<Dashboard />}></Route>
+        <Route path="*" element={<ErrorPage />}></Route>
       </Route>
     </Routes>
   </BrowserRouter>

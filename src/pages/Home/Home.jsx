@@ -15,8 +15,11 @@ export const Home = () => {
       <h2 className={style.container__title}>Sélectionnez votre sportif</h2>
       <ul className={style.container__list}>
         {users.length > 0 &&
-          users.map((user) =><li key={user.id}><Profil user={user} /></li>)
-        }
+          users.map((user) => (
+            <li key={user.id}>
+              <Profil user={user} />
+            </li>
+          ))}
       </ul>
     </div>
   );

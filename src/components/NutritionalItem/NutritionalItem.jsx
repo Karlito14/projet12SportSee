@@ -32,6 +32,7 @@ export const NutritionalItem = ({ objKey, value }) => {
       setIcon(<FaHamburger />);
       setSmall('Lipides');
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getColors = () => {

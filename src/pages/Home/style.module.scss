@@ -1,14 +1,13 @@
 .container {
-    //display: grid;
+  //display: grid;
 
-    &__title {
-        margin-bottom: 3rem;
-        font-size: 4rem;
-    }
+  &__title {
+    margin-bottom: 3rem;
+    font-size: 4rem;
+  }
 
-    &__list {
-        display: flex;
-        justify-content: center;
-        
-    }
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
 }

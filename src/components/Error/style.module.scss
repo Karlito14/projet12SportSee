@@ -1,22 +1,22 @@
 @use '../../variables';
 
 .container {
-    display: grid;
+  display: grid;
+  color: #333;
+  text-align: center;
+  padding: 7rem;
+
+  &__title {
+    font-size: 5rem;
+    color: variables.$color-red;
+  }
+
+  &__subtitle {
+    margin: 2rem 0;
+  }
+
+  &__link {
     color: #333;
-    text-align: center;
-    padding: 7rem;
-
-    &__title {
-        font-size: 5rem;
-        color: variables.$color-red
-    }
-
-    &__subtitle {
-        margin: 2rem 0;
-    }
-
-    &__link {
-        color: #333;
-        text-decoration: underline;
-    }
+    text-decoration: underline;
+  }
 }

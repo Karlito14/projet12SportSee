@@ -1,6 +1,6 @@
 @use 'variables';
 
-@mixin navBar ($py, $px, $shadowX, $shadowY) {
+@mixin navBar($py, $px, $shadowX, $shadowY) {
   background-color: variables.$background-black;
   box-shadow: $shadowX $shadowY 4px rgba(0, 0, 0, 0.25);
   padding: $py $px;

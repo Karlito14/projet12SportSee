@@ -4,13 +4,13 @@ import { NavVertical } from './components/NavVertical/NavVertical';
 
 export function App() {
   return (
-    <div className='container'>
+    <div className="container">
       <header>
         <NavHorizontal />
       </header>
-      <div className='content'>
+      <div className="content">
         <NavVertical />
-        <main className='main'>
+        <main className="main">
           <Outlet />
         </main>
       </div>

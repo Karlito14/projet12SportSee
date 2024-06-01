@@ -6,7 +6,7 @@ import { LuDumbbell } from 'react-icons/lu';
 
 export const NavVertical = () => {
   const sizeIcons = 32;
-  
+
   return (
     <aside className={style.aside}>
       <div className={style.aside__content}>
