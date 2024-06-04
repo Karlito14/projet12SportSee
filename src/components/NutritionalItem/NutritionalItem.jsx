@@ -6,7 +6,6 @@ import { FaHamburger } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 
 export const NutritionalItem = ({ objKey, value }) => {
-  console.log(objKey, value);
   const [icon, setIcon] = useState();
   const [unity, setUnity] = useState('g');
   const [small, setSmall] = useState();

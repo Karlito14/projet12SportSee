@@ -3,19 +3,24 @@ import { useParams } from 'react-router-dom';
 import { ApiUser } from '../../api/api-user.js';
 import style from './style.module.scss';
 import { NutritionalList } from '../../components/NutritionalList/NutritionalList.jsx';
+import { ChartActivity } from '../../components/ChartActivity/ChartActivity.jsx';
 
 export const Dashboard = () => {
   const [user, setUser] = useState();
+  const [activity, setActivity] = useState();
   const { id } = useParams();
 
   const getUser = async () => {
     try {
       const user = await ApiUser.fetchUser(id);
       setUser(user);
+      const activity = await ApiUser.getActivity(id);
+      setActivity(activity)
     } catch (error) {
       console.error(error.message);
     }
   };
+
 
   useEffect(() => {
     getUser();
@@ -32,7 +37,9 @@ export const Dashboard = () => {
       </h2>
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       <div className={style.content}>
-        <div></div>
+        <div className={style.content__recharts}>
+          {activity && <ChartActivity data={activity} />}
+        </div>
         {user && <NutritionalList list={user.keyData} />}
       </div>
     </>
