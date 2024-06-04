@@ -1,12 +1,17 @@
 .container {
   width: 30%;
+  margin-left: 3rem;
 
   &__list {
     &__item {
-      margin: 2rem 0;
       padding: 2rem;
       background-color: #fbfbfb;
       border-radius: 10px;
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        margin: 2rem 0;
+      }
     }
   }
 }
