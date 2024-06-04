@@ -7,19 +7,14 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
+  ResponsiveContainer,
 } from 'recharts';
 
 export const ChartActivity = ({ data }) => {
   console.log(data);
   return (
-    <div className={style.container}>
-      <div className={style.container__text}>
-        <h2 className={style.container__text__title}>Activité quotidienne</h2>
-        <ul>
-            <li><span className={style.span_grey}></span>Poids (kg)</li>
-            <li><span className={style.span_red}></span>Calories brûlées (kCal)</li>
-        </ul>
-      </div>
+    <ResponsiveContainer className={style.container} height={300} margin= {{top: 20, right: 20, left: 20, bottom:20}}>
       <BarChart
         className={style.container__wrapper}
         width={500}
@@ -31,14 +26,16 @@ export const ChartActivity = ({ data }) => {
           left: 20,
           bottom: 5,
         }}
+        barGap={-30}
       >
-        <CartesianGrid strokeDasharray="1 1" />
+        <CartesianGrid strokeDasharray="1 3" />
         <XAxis dataKey="day" />
-        <YAxis dataKey="calories" />
+        <YAxis dataKey="kilogram" tickMargin={30} domain={[0, 'auto']}/>
         <Tooltip />
-        <Bar dataKey="kilogram" fill="#282D30" activeBar={<Rectangle />} />
-        <Bar dataKey="calories" fill="#E60000" activeBar={<Rectangle />} />
+        <Legend verticalAlign="top" height={36} align='right' iconType='circle' />
+        <Bar dataKey="kilogram" fill="#282D30" activeBar={<Rectangle />} radius={[20, 20, 0, 0]} maxBarSize={10} />
+        <Bar dataKey="calories" fill="#E60000" activeBar={<Rectangle />} radius={[20, 20, 0, 0]} maxBarSize={10} />
       </BarChart>
-    </div>
+    </ResponsiveContainer>
   );
 };
