@@ -4,10 +4,12 @@ import { ApiUser } from '../../api/api-user.js';
 import style from './style.module.scss';
 import { NutritionalList } from '../../components/NutritionalList/NutritionalList.jsx';
 import { ChartActivity } from '../../components/ChartActivity/ChartActivity.jsx';
+import { ChartSessions } from '../../components/ChartSessions/ChartSessions.jsx';
 
 export const Dashboard = () => {
   const [user, setUser] = useState();
   const [activity, setActivity] = useState();
+  const [sessions, setSessions] = useState();
   const { id } = useParams();
 
   const getUser = async () => {
@@ -15,12 +17,13 @@ export const Dashboard = () => {
       const user = await ApiUser.fetchUser(id);
       setUser(user);
       const activity = await ApiUser.getActivity(id);
-      setActivity(activity)
+      setActivity(activity);
+      const sessions = await ApiUser.getSessions(id);
+      setSessions(sessions);
     } catch (error) {
       console.error(error.message);
     }
   };
-
 
   useEffect(() => {
     getUser();
@@ -39,6 +42,9 @@ export const Dashboard = () => {
       <div className={style.content}>
         <div className={style.content__recharts}>
           {activity && <ChartActivity data={activity} />}
+          <div className={style.content__recharts__bottom}>
+            {sessions && <ChartSessions data={sessions} />}
+          </div>
         </div>
         {user && <NutritionalList list={user.keyData} />}
       </div>

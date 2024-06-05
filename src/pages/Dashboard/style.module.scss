@@ -14,7 +14,13 @@
   display: flex;
   margin-top: 3rem;
 
-  & > div:first-child {
+  &__recharts {
     width: 90%;
+
+    &__bottom {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
   }
 }
