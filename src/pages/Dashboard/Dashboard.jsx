@@ -6,7 +6,7 @@ import { NutritionalList } from '../../components/NutritionalList/NutritionalLis
 import { ChartActivity } from '../../components/ChartActivity/ChartActivity.jsx';
 import { ChartSessions } from '../../components/ChartSessions/ChartSessions.jsx';
 import { ChartPerformance } from '../../components/ChartPerformance/ChartPerformance.jsx';
-import { ChartScore } from '../../components/ChatScore/ChartScore.jsx';
+import { ChartScore } from '../../components/ChartScore/ChartScore.jsx';
 
 export const Dashboard = () => {
   const [user, setUser] = useState();

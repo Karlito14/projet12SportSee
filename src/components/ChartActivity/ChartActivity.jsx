@@ -15,20 +15,7 @@ export const ChartActivity = ({ data }) => {
   console.log(data.sessions)
   return (
     <ResponsiveContainer className={style.container} height={300}>
-      {/* <div className={style.text}>
-        <h2 className={style.container__title}>Activité quotidienne</h2>
-        <ul className={style.container__list}>
-          <li className={style.container__list__item}>
-            <span className={style.circle_grey}></span>Poids (kg)
-          </li>
-          <li className={style.container__list__item}>
-            <span className={style.circle_red}></span>Calories brûlées (kCal)
-          </li>
-        </ul>
-      </div> */}
-
       <BarChart
-        className={style.container__wrapper}
         width={500}
         height={300}
         data={data.sessions}

@@ -11,8 +11,7 @@ import {
 export const ChartPerformance = ({ data }) => {
     console.log(data)
   return (
-    <div className={style.container}>
-      <ResponsiveContainer width="100%" height="200px">
+      <ResponsiveContainer width="30%" height={200} className={style.container}>
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="subject" />
@@ -26,6 +25,5 @@ export const ChartPerformance = ({ data }) => {
           />
         </RadarChart>
       </ResponsiveContainer>
-    </div>
   );
 };
