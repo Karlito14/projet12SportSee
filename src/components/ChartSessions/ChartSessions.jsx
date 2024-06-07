@@ -18,7 +18,7 @@ export const ChartSessions = ({ data }) => {
   }
 
   return (
-    <ResponsiveContainer width="30%" height={200} className={style.container}>
+    <ResponsiveContainer width="30%" height={230} className={style.container}>
       <LineChart width={400} height={100} data={dataUpdated}>
         <XAxis
           dataKey={'day'}

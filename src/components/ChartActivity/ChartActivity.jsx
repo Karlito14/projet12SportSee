@@ -12,13 +12,19 @@ import {
 } from 'recharts';
 
 export const ChartActivity = ({ data }) => {
-  console.log(data.sessions)
+  const dataUpdated = data.sessions.map((item, index) => {
+    return {
+      ...item,
+      day: index + 1
+    }
+  })
+  
   return (
     <ResponsiveContainer className={style.container} height={300}>
       <BarChart
         width={500}
         height={300}
-        data={data.sessions}
+        data={dataUpdated}
         margin={{
           top: 15,
           right: 15,
@@ -29,7 +35,7 @@ export const ChartActivity = ({ data }) => {
         maxBarSize={10}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis ticks={[1, 2, 3, 4, 5, 6, 7]} tickMargin={10} tickSize="0" />
+        <XAxis dataKey={'day'} tickMargin={10} tickSize="0" />
         <YAxis
           dataKey="kilogram"
           tickMargin={30}

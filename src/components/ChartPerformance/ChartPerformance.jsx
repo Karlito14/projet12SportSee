@@ -9,21 +9,27 @@ import {
 } from 'recharts';
 
 export const ChartPerformance = ({ data }) => {
-    console.log(data)
+  const dataUpdated = data.data.map((item, index) => {
+    return {
+      ...item,
+      subject: data.kind[index + 1],
+    };
+  });
+
   return (
-      <ResponsiveContainer width="30%" height={200} className={style.container}>
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="subject" />
-          <PolarRadiusAxis />
-          <Radar
-            name="Mike"
-            dataKey="A"
-            stroke="#8884d8"
-            fill="#8884d8"
-            fillOpacity={0.6}
-          />
-        </RadarChart>
-      </ResponsiveContainer>
+    <ResponsiveContainer width="30%" height={230} className={style.container} >
+      <RadarChart cx="50%" cy="50%" outerRadius="80%" data={dataUpdated} >
+        <PolarGrid gridType='polygon' radialLines={false} polarRadius={[0, 10, 27, 49, 72, 95]} />
+        <PolarAngleAxis dataKey="subject" tick={{ fill: "white", fontSize: 15 }} />
+        <PolarRadiusAxis  tick={false} axisLine={false} />
+        <Radar
+          name="Mike"
+          dataKey="value"
+          stroke="#FF0101B2"
+          fill="#FF0101B2"
+          fillOpacity={0.6}
+        />
+      </RadarChart>
+    </ResponsiveContainer>
   );
 };
