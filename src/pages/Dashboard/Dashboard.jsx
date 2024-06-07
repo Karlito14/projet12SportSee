@@ -34,6 +34,8 @@ export const Dashboard = () => {
     }
   };
 
+  console.log(user);
+
   useEffect(() => {
     getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -54,7 +56,7 @@ export const Dashboard = () => {
           <div className={style.content__recharts__bottom}>
             {sessions && <ChartSessions data={sessions} />}
             {performance && <ChartPerformance data={performance} />}
-            <ChartScore />
+            {user && <ChartScore data={user.todayScore || user.score} />}
           </div>
         </div>
         {user && <NutritionalList list={user.keyData} />}

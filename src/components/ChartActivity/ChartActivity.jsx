@@ -15,10 +15,10 @@ export const ChartActivity = ({ data }) => {
   const dataUpdated = data.sessions.map((item, index) => {
     return {
       ...item,
-      day: index + 1
-    }
-  })
-  
+      day: index + 1,
+    };
+  });
+
   return (
     <ResponsiveContainer className={style.container} height={300}>
       <BarChart

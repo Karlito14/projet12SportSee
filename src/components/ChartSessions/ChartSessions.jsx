@@ -32,7 +32,7 @@ export const ChartSessions = ({ data }) => {
         <Line
           type="monotone"
           dataKey="sessionLength"
-          stroke="#8884d8"
+          stroke="#fff"
           strokeWidth={2}
           dot={false} 
           activeDot={{ stroke: 'white', strokeWidth: 5}}
