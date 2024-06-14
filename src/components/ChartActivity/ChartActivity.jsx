@@ -8,7 +8,6 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Legend,
 } from 'recharts';
 
 export const ChartActivity = ({ data }) => {
@@ -32,42 +31,61 @@ export const ChartActivity = ({ data }) => {
   };
 
   return (
-    <ResponsiveContainer className={style.container} height={300}>
+    <ResponsiveContainer className={style.container} height={280}>
       <BarChart
         width={500}
         height={300}
         data={dataUpdated}
         margin={{
           top: 15,
-          right: 15,
-          left: 15,
+          right: 30,
+          left: 20,
           bottom: 15,
         }}
-        barGap={-30}
+        barCategoryGap={30}
         maxBarSize={10}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey={'day'} tickMargin={10} tickSize="0" />
-        <YAxis
-          dataKey="kilogram"
-          tickMargin={30}
-          domain={['dataMin - 3', 'dataMax + 1']}
-          orientation="right"
+        <CartesianGrid strokeDasharray="3 3" vertical={false} />
+        <XAxis
+          yAxisId="kg"
+          dataKey={'day'}
+          tickMargin={10}
           tickSize="0"
+          padding={{ left: -35, right: -35 }}
         />
-        <Tooltip content={<CustomTooltip />} />
-        <Legend verticalAlign="top" align="right" iconType="circle" />
+        <YAxis
+          yAxisId="kg"
+          dataKey="kilogram"
+          domain={["dataMin - 2", "dataMax + 1"]}
+          allowDecimals={false}
+          dx={30}
+          orientation="right"
+          axisLine={false}
+          tickLine={false}
+          tickCount={3}
+        />
+        <YAxis
+          yAxisId="cal"
+          dataKey="calories"
+          hide={true}
+          orientation="left"
+          axisLine={false}
+          tickLine={false}
+        />
+        <Tooltip content={<CustomTooltip />} animationEasing="ease-out" />
         <Bar
+          yAxisId="kg"
           dataKey="kilogram"
           fill="#282D30"
           activeBar={<Rectangle />}
-          radius={[20, 20, 0, 0]}
+          radius={[10, 10, 0, 0]}
         />
         <Bar
+          yAxisId="cal"
           dataKey="calories"
           fill="#E60000"
           activeBar={<Rectangle />}
-          radius={[20, 20, 0, 0]}
+          radius={[10, 10, 0, 0]}
         />
       </BarChart>
     </ResponsiveContainer>
