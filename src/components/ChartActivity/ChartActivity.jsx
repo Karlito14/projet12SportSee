@@ -19,6 +19,18 @@ export const ChartActivity = ({ data }) => {
     };
   });
 
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className={style.custom}>
+          <p className={style.custom__label}>{`${payload[0].value}kg`}</p>
+          <p className={style.custom__label}>{`${payload[1].value}Kcal`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <ResponsiveContainer className={style.container} height={300}>
       <BarChart
@@ -43,7 +55,7 @@ export const ChartActivity = ({ data }) => {
           orientation="right"
           tickSize="0"
         />
-        <Tooltip />
+        <Tooltip content={<CustomTooltip />} />
         <Legend verticalAlign="top" align="right" iconType="circle" />
         <Bar
           dataKey="kilogram"

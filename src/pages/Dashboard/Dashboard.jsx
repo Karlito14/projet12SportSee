@@ -18,7 +18,7 @@ export const Dashboard = () => {
 
   const getData = async () => {
     try {
-      const user = await ApiUser.fetchUser(id);
+      const user = await ApiUser.getUser(id);
       setUser(user);
 
       const activity = await ApiUser.getActivity(id);

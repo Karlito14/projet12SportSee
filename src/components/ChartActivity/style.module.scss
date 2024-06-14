@@ -1,4 +1,14 @@
 .container {
   background-color: #fbfbfb;
   border-radius: 10px;
+
+  .custom {
+    background-color: #E60000;
+
+    &__label {
+      color: white;
+      padding: 2rem;
+    }
+  }
 }
+

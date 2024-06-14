@@ -1,10 +1,5 @@
 import style from './style.module.scss';
-import {
-  RadialBarChart,
-  RadialBar,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 export const ChartScore = ({ data }) => {
   console.log(data);
@@ -17,31 +12,21 @@ export const ChartScore = ({ data }) => {
 
   return (
     <ResponsiveContainer width="30%" height={230} className={style.container}>
-      <RadialBarChart
-        width={730}
-        height={250}
-        innerRadius="10%"
-        outerRadius="80%"
-        data={dataUpdated}
-        startAngle={180}
-        endAngle={0}
-      >
-        <RadialBar
-          minAngle={15}
-          label={{ fill: '#666', position: 'insideStart' }}
-          background
-          clockWise={true}
+      <PieChart width={200} height={230}>
+        <Pie
+          data={dataUpdated}
+          innerRadius={60}
+          outerRadius={80}
+          fill="#8884d8"
+          paddingAngle={5}
           dataKey="value"
-        />
-        <Legend
-          iconSize={10}
-          width={120}
-          height={140}
-          layout="vertical"
-          verticalAlign="middle"
-          align="right"
-        />
-      </RadialBarChart>
+          cornerRadius={10}
+        >
+          {dataUpdated.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill="#FF0000" />
+          ))}
+        </Pie>
+      </PieChart>
     </ResponsiveContainer>
   );
 };

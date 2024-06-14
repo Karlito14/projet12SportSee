@@ -22,7 +22,7 @@ export const NavHorizontal = () => {
             <a href="#">Réglages</a>
           </li>
           <li>
-            <a href="#">Comunauté</a>
+            <a href="#">Communauté</a>
           </li>
         </ul>
       </nav>
