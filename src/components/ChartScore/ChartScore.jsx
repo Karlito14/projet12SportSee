@@ -2,7 +2,6 @@ import style from './style.module.scss';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
 export const ChartScore = ({ data }) => {
-  console.log(data);
   const dataUpdated = [
     {
       name: 'score',

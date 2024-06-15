@@ -6,7 +6,7 @@ import {
   Tooltip,
   ResponsiveContainer,
   Legend,
-  ReferenceArea,
+  Rectangle
 } from 'recharts';
 
 const DAYS = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
@@ -23,6 +23,24 @@ export const ChartSessions = ({ data }) => {
     return null;
   };
 
+  const CustomCursor = (props) => {
+    const { points, width} = props;
+    const { x } = points[0];
+    console.log(props);
+    return (
+      <Rectangle
+        fill="#000000"
+        stroke="#000000"
+        opacity={0.1}
+        x={x}
+        y={0}
+        width={width}
+        height={230}
+        position='absolute'
+      />
+    );
+  };
+
   const dataUpdated = data.sessions.map((item, index) => {
     return {
       day: DAYS[index],
@@ -31,12 +49,20 @@ export const ChartSessions = ({ data }) => {
   });
 
   const renderLegend = () => {
-    return <h3 className={style.title}>Durée moyenne des sessions</h3>;
+    return <h3 className={style.title}>Durée moyenne des<br />sessions</h3>;
   };
 
   return (
-    <ResponsiveContainer width="30%" height={230} className={style.container}>
-      <LineChart width={400} height={100} data={dataUpdated}>
+    <ResponsiveContainer width="30%" height={230} className={style.container} >
+      <LineChart
+        data={dataUpdated}
+        margin={{
+          top: 0,
+          right: 0,
+          left: 0,
+          bottom: 15,
+        }}
+      >
         <defs>
           <linearGradient id="colorGradiant" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#ffffff80" />
@@ -49,26 +75,23 @@ export const ChartSessions = ({ data }) => {
           tickLine={false}
           axisLine={false}
           padding={{ left: 20, right: 20 }}
-          tick={{ fill: '#FFFFFF', opacity: '0.5' }}
+          tick={{ fill: '#FFFFFF', opacity: '0.5', transform:'scale(0.95)', }}
         />
-        <Tooltip cursor={false} content={<CustomTooltip />} position={{ y: 10 }} />
+        <Tooltip
+          cursor={<CustomCursor />}
+          content={<CustomTooltip />}
+          position={{ y: 20 }}
+        />
         <Legend content={renderLegend} align="left" verticalAlign="top" />
         <Line
           type="bump"
           dataKey="sessionLength"
-          stroke="#fff"
+          stroke="url(#colorGradiant)"
           strokeWidth={3}
           dot={false}
           activeDot={{ stroke: 'white', strokeWidth: 5 }}
         />
-        <ReferenceArea
-          x1={150}
-          x2={180}
-          y1={200}
-          y2={300}
-          stroke="red"
-          strokeOpacity={0.3}
-        />
+  
       </LineChart>
     </ResponsiveContainer>
   );
