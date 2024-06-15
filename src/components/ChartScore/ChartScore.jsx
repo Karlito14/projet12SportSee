@@ -1,5 +1,11 @@
 import style from './style.module.scss';
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import {
+  RadialBarChart,
+  RadialBar,
+  PolarAngleAxis,
+  ResponsiveContainer,
+  Legend,
+} from 'recharts';
 
 export const ChartScore = ({ data }) => {
   const dataUpdated = [
@@ -9,23 +15,40 @@ export const ChartScore = ({ data }) => {
     },
   ];
 
+  const RenderCustomizedLegend = () => {
+    return (
+      <div className={style.legendWrapper}>
+        <p className={style.legendWrapper__score}>{data ? dataUpdated[0].value : 0}%</p>
+        <p className={style.legendWrapper__description}>
+          de votre <br />
+          objectif
+        </p>
+      </div>
+    );
+  };
+
   return (
-    <ResponsiveContainer width="30%" height={230} className={style.container}>
-      <PieChart width={200} height={230}>
-        <Pie
-          data={dataUpdated}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-          cornerRadius={10}
-        >
-          {dataUpdated.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill="#FF0000" />
-          ))}
-        </Pie>
-      </PieChart>
+    <ResponsiveContainer className={style.container} width="30%" height={230}>
+      <RadialBarChart
+        data={dataUpdated}
+        innerRadius="65%"
+        outerRadius="75%"
+        startAngle={90}
+        endAngle={90 + data * 360}
+      >
+        <PolarAngleAxis
+          type="number"
+          domain={[0, 10]}
+          angleAxisId={0}
+          tick={false}
+        />
+        <text x={20} y={30} className={style.container__title}>
+          Score
+        </text>
+        <Legend content={RenderCustomizedLegend} />
+        <RadialBar dataKey="value" cornerRadius={20} fill="red" />
+      </RadialBarChart>
     </ResponsiveContainer>
   );
 };
+

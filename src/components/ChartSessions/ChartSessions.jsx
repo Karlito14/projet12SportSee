@@ -6,7 +6,7 @@ import {
   Tooltip,
   ResponsiveContainer,
   Legend,
-  Rectangle
+  Rectangle,
 } from 'recharts';
 
 const DAYS = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
@@ -24,9 +24,8 @@ export const ChartSessions = ({ data }) => {
   };
 
   const CustomCursor = (props) => {
-    const { points, width} = props;
+    const { points, width } = props;
     const { x } = points[0];
-    console.log(props);
     return (
       <Rectangle
         fill="#000000"
@@ -36,7 +35,6 @@ export const ChartSessions = ({ data }) => {
         y={0}
         width={width}
         height={230}
-        position='absolute'
       />
     );
   };
@@ -49,18 +47,24 @@ export const ChartSessions = ({ data }) => {
   });
 
   const renderLegend = () => {
-    return <h3 className={style.title}>Durée moyenne des<br />sessions</h3>;
+    return (
+      <h3 className={style.title}>
+        Durée moyenne des
+        <br />
+        sessions
+      </h3>
+    );
   };
 
   return (
-    <ResponsiveContainer width="30%" height={230} className={style.container} >
+    <ResponsiveContainer width="30%" height={230} className={style.container}>
       <LineChart
         data={dataUpdated}
         margin={{
           top: 0,
           right: 0,
           left: 0,
-          bottom: 15,
+          bottom: 10,
         }}
       >
         <defs>
@@ -75,13 +79,9 @@ export const ChartSessions = ({ data }) => {
           tickLine={false}
           axisLine={false}
           padding={{ left: 20, right: 20 }}
-          tick={{ fill: '#FFFFFF', opacity: '0.5', transform:'scale(0.95)', }}
+          tick={{ fill: '#FFFFFF', opacity: '0.5' }}
         />
-        <Tooltip
-          cursor={<CustomCursor />}
-          content={<CustomTooltip />}
-          position={{ y: 20 }}
-        />
+        <Tooltip cursor={<CustomCursor />} content={<CustomTooltip />} />
         <Legend content={renderLegend} align="left" verticalAlign="top" />
         <Line
           type="bump"
@@ -91,7 +91,6 @@ export const ChartSessions = ({ data }) => {
           dot={false}
           activeDot={{ stroke: 'white', strokeWidth: 5 }}
         />
-  
       </LineChart>
     </ResponsiveContainer>
   );

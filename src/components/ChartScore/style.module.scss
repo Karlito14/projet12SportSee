@@ -1,6 +1,41 @@
 @use '../../variables';
 
 .container {
-    background-color: variables.$background-grey-light;
-    border-radius: 10px;
+  background-color: variables.$background-grey-light;
+  border-radius: 10px;
+
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+
+.legendWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(-45%);
+    left: 50%;
+    translate: -50%;
+    background-color: white;
+    border-radius: 50%;
+    
+    width: 115px;
+    height: 115px;
+
+    &__score {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    &__description {
+        font-size: 16px;
+        text-align: center;
+        color: #74798c;
+        font-weight: 500;
+    }
 }
