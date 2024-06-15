@@ -1,9 +1,11 @@
+@use '../../variables';
+
 .container {
-  background-color: #fbfbfb;
+  background-color: variables.$background-grey-light;
   border-radius: 0 0 10px 10px;
 
   .custom {
-    background-color: #E60000;
+    background-color: variables.$color-red-dark;
 
     &__label {
       color: white;

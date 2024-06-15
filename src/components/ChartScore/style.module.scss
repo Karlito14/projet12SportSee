@@ -1,4 +1,6 @@
+@use '../../variables';
+
 .container {
-    background-color: #FBFBFB;
+    background-color: variables.$background-grey-light;
     border-radius: 10px;
 }

@@ -1,3 +1,5 @@
+@use '../../variables';
+
 .container {
   width: 30%;
   margin-left: 3rem;
@@ -10,7 +12,7 @@
 
     &__item {
       padding: 2rem;
-      background-color: #fbfbfb;
+      background-color: variables.$background-grey-light;
       border-radius: 10px;
 
       &:last-child {

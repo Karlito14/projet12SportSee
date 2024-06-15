@@ -42,8 +42,9 @@ export const ChartActivity = ({ data }) => {
           left: 20,
           bottom: 15,
         }}
-        barCategoryGap={30}
-        maxBarSize={10}
+        //barCategoryGap={1}
+        barGap={10}
+        barSize={10}
       >
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
         <XAxis
@@ -51,14 +52,14 @@ export const ChartActivity = ({ data }) => {
           dataKey={'day'}
           tickMargin={10}
           tickSize="0"
-          padding={{ left: -35, right: -35 }}
+          padding={{ left: -32, right: -33 }}
         />
         <YAxis
           yAxisId="kg"
           dataKey="kilogram"
           domain={["dataMin - 2", "dataMax + 1"]}
           allowDecimals={false}
-          dx={30}
+          tickMargin={30}
           orientation="right"
           axisLine={false}
           tickLine={false}

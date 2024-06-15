@@ -1,5 +1,7 @@
+@use '../../variables';
+
 .container {
-    background-color: #282D30;
+    background-color: variables.$background-grey;
     border-radius: 10px;
     width: 30%;
 }
