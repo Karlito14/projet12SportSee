@@ -5,37 +5,33 @@
   border-radius: 10px;
 
   &__title {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
     line-height: 24px;
   }
 }
-
+  
 .legendWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 50%;
-    transform: translateY(-45%);
-    left: 50%;
-    translate: -50%;
+    box-sizing: content-box;
+    text-align: center;
     background-color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
     border-radius: 50%;
-    
-    width: 115px;
-    height: 115px;
+    padding: 14%;
+    white-space: nowrap;
 
-    &__score {
-        font-size: 22px;
-        font-weight: 700;
-    }
+  &__score {
+    font-size: 16px;
+    font-weight: 700;
+  }
 
-    &__description {
-        font-size: 16px;
-        text-align: center;
-        color: #74798c;
-        font-weight: 500;
-    }
+  &__description {
+    font-size: 16px;
+    text-align: center;
+    color: #74798c;
+    font-weight: 500;
+  }
 }

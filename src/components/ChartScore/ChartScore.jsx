@@ -30,11 +30,13 @@ export const ChartScore = ({ data }) => {
   return (
     <ResponsiveContainer className={style.container} width="30%" height={230}>
       <RadialBarChart
+      width={700}
+      height={230}
         data={dataUpdated}
         innerRadius="65%"
         outerRadius="75%"
         startAngle={90}
-        endAngle={90 + data * 360}
+        endAngle={90 + 1 * 360}
       >
         <PolarAngleAxis
           type="number"
@@ -45,8 +47,8 @@ export const ChartScore = ({ data }) => {
         <text x={20} y={30} className={style.container__title}>
           Score
         </text>
-        <Legend content={RenderCustomizedLegend} />
-        <RadialBar dataKey="value" cornerRadius={20} fill="red" />
+        <Legend content={RenderCustomizedLegend} align='center' verticalAlign='middle' />
+        <RadialBar dataKey="value" cornerRadius={20} fill="#FF0000" />
       </RadialBarChart>
     </ResponsiveContainer>
   );
