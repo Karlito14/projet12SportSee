@@ -1,0 +1,33 @@
+@use '../../variables';
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: variables.$background-grey-light;
+    border-radius: 10px;
+
+    &__spinning {
+      height: 100px;
+      width: 100px;
+      border: 6px solid transparent;
+      border-top-color: variables.$color-red;
+      border-bottom-color: variables.$color-red;
+      border-radius: 50%;
+      animation-name: spin;
+      animation-duration: 2000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

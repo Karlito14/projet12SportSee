@@ -57,7 +57,7 @@ export const ChartActivity = ({ data }) => {
         <YAxis
           yAxisId="kg"
           dataKey="kilogram"
-          domain={["dataMin - 2", "dataMax + 1"]}
+          domain={['dataMin - 2', 'dataMax + 1']}
           allowDecimals={false}
           tickMargin={30}
           orientation="right"

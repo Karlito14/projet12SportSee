@@ -7,6 +7,7 @@ import { ChartActivity } from '../../components/ChartActivity/ChartActivity.jsx'
 import { ChartSessions } from '../../components/ChartSessions/ChartSessions.jsx';
 import { ChartPerformance } from '../../components/ChartPerformance/ChartPerformance.jsx';
 import { ChartScore } from '../../components/ChartScore/ChartScore.jsx';
+import { Spinning } from '../../components/Spinning/Spinning.jsx';
 
 export const Dashboard = () => {
   const [user, setUser] = useState();
@@ -50,14 +51,30 @@ export const Dashboard = () => {
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       <div className={style.content}>
         <div className={style.content__recharts}>
-          {activity && <ChartActivity data={activity} />}
+          {activity ? (
+            <ChartActivity data={activity} />
+          ) : (
+            <Spinning height={'280px'} width={'100%'} />
+          )}
           <div className={style.content__recharts__bottom}>
-            {sessions && <ChartSessions data={sessions} />}
-            {performance && <ChartPerformance data={performance} />}
-            {user && <ChartScore data={user.todayScore || user.score} />}
+            {sessions ? (
+              <ChartSessions data={sessions} />
+            ) : (
+              <Spinning height={'230px'} width={'30%'} />
+            )}
+            {performance ? (
+              <ChartPerformance data={performance} />
+            ) : (
+              <Spinning height={'230px'} width={'30%'} />
+            )}
+            {user ? (
+              <ChartScore data={user.todayScore || user.score} />
+            ) : (
+              <Spinning height={'230px'} width={'30%'}/>
+            )}
           </div>
         </div>
-        {user && <NutritionalList list={user.keyData} />}
+        {user ? <NutritionalList list={user.keyData} /> : <Spinning height={'530px'} width={'30%'} />}
       </div>
     </>
   );

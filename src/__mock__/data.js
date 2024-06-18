@@ -5,6 +5,7 @@ const USER_MAIN_DATA = [
       firstName: 'Karl',
       lastName: 'Dovineau',
       age: 31,
+      gender: 'man',
     },
     todayScore: 0.28,
     keyData: {
@@ -20,6 +21,7 @@ const USER_MAIN_DATA = [
       firstName: 'Cecilia',
       lastName: 'Ratorez',
       age: 34,
+      gender: 'woman',
     },
     score: 0.3,
     keyData: {
