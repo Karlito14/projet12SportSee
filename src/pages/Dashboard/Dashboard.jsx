@@ -51,6 +51,13 @@ export const Dashboard = () => {
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       <div className={style.content}>
         <div className={style.content__recharts}>
+          <div className={style.container}>
+            <h2 className={style.container__title}>Activité quotidienne</h2>
+            <ul>
+              <li><span className={style.spangrey}></span>Poids (kg)</li>
+              <li><span className={style.spanred}></span>Calories brûlées (kCal)</li>
+            </ul>
+          </div>
           {activity ? (
             <ChartActivity data={activity} />
           ) : (

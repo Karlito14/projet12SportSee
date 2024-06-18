@@ -18,7 +18,6 @@ const KINDS = {
 };
 
 export const ChartPerformance = ({ data }) => {
-  console.log(data);
   const dataUpdated = data.data.map((item, index) => {
     return {
       ...item,
