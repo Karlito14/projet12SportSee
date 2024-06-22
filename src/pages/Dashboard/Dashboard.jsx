@@ -57,6 +57,14 @@ export const Dashboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const displaySpinningOrError = (state, height, width) => {
+    return state === undefined ? (
+      <ErrorDisplay height={height} width={width} />
+    ) : (
+      <Spinning height={height} width={width} />
+    );
+  };
+
   return (
     <>
       <h2 className={style.title}>
@@ -79,13 +87,13 @@ export const Dashboard = () => {
               </li>
             </ul>
           </div>
+
           {activity ? (
             <ChartActivity data={activity} />
-          ) : activity === undefined ? (
-            <ErrorDisplay height={'280px'} width={'100%'} />
           ) : (
-            <Spinning height={'280px'} width={'100%'} />
+            displaySpinningOrError(activity, '280px', '100%')
           )}
+
           <div className={style.content__recharts__bottom}>
             {sessions ? (
               <ChartSessions data={sessions} />
@@ -94,28 +102,25 @@ export const Dashboard = () => {
             ) : (
               <Spinning height={'230px'} width={'30%'} />
             )}
+
             {performance ? (
               <ChartPerformance data={performance} />
-            ) : performance === undefined ? (
-              <ErrorDisplay height={'230px'} width={'30%'} />
             ) : (
-              <Spinning height={'230px'} width={'30%'} />
+              displaySpinningOrError(performance, '230px', '30%')
             )}
+
             {user ? (
               <ChartScore data={user.todayScore || user.score} />
-            ) : user === undefined ? (
-              <ErrorDisplay height={'230px'} width={'30%'} />
             ) : (
-              <Spinning height={'230px'} width={'30%'} />
+              displaySpinningOrError(user, '230px', '30%')
             )}
           </div>
         </div>
+
         {user ? (
           <NutritionalList list={user.keyData} />
-        ) : user === undefined ? (
-          <ErrorDisplay height={'530px'} width={'30%'} />
         ) : (
-          <Spinning height={'530px'} width={'30%'} />
+          displaySpinningOrError(user, '530px', '30%')
         )}
       </div>
     </>
