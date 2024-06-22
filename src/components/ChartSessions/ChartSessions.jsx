@@ -89,7 +89,12 @@ export const ChartSessions = ({ data }) => {
           stroke="url(#colorGradiant)"
           strokeWidth={3}
           dot={false}
-          activeDot={{ stroke: 'white', strokeWidth: 5 }}
+          activeDot={{
+            stroke: 'white',
+            strokeWidth: 10,
+            strokeOpacity: 0.4,
+            fill: 'white',
+          }}
         />
       </LineChart>
     </ResponsiveContainer>

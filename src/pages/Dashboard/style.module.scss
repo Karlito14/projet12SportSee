@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: variables.$background-grey-light;
-  padding: 2rem 2rem 4rem;
+  padding: 2rem 2rem 3rem;
   border-radius: 10px 10px 0 0;
 
   &__title {
@@ -21,6 +21,7 @@
       margin: 0 2rem;
       display: flex;
       align-items: center;
+      color: variables.$color-grey-light;
 
       span {
         display: inline-block;
@@ -35,7 +36,7 @@
       }
 
       .spanred {
-        background-color: variables.$color-red;
+        background-color: variables.$color-red-dark;
       }
     }
   }
@@ -53,6 +54,7 @@
 
 .content {
   display: flex;
+  justify-content: space-between;
   margin-top: 3rem;
 
   &__recharts {

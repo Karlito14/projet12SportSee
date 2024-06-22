@@ -31,7 +31,7 @@ export const ChartActivity = ({ data }) => {
   };
 
   return (
-    <ResponsiveContainer className={style.container} height={280}>
+    <ResponsiveContainer className={style.container} height={250}>
       <BarChart
         width={500}
         height={300}
@@ -42,7 +42,6 @@ export const ChartActivity = ({ data }) => {
           left: 20,
           bottom: 15,
         }}
-        //barCategoryGap={1}
         barGap={10}
         barSize={10}
       >

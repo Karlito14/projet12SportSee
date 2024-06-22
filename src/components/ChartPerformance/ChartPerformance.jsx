@@ -27,19 +27,18 @@ export const ChartPerformance = ({ data }) => {
 
   return (
     <ResponsiveContainer width="30%" height={230} className={style.container}>
-      <RadarChart data={dataUpdated}>
-        <PolarGrid
-          gridType="polygon"
-          radialLines={false}
-          polarRadius={[0, 10, 27, 49, 72, 95]}
-        />
+      <RadarChart data={dataUpdated} >
+        <PolarGrid gridType="polygon" radialLines={false} />
         <PolarAngleAxis
           dataKey="subject"
           tick={{ fill: 'white', fontSize: 14 }}
         />
-        <PolarRadiusAxis tick={false} axisLine={false} />
+        <PolarRadiusAxis
+          tick={false}
+          axisLine={false}
+          tickCount={6}
+        />
         <Radar
-          name="Mike"
           dataKey="value"
           stroke="#FF0101B2"
           fill="#FF0101B2"

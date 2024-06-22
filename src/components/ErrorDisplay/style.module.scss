@@ -1,0 +1,11 @@
+@use '../../variables';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: variables.$background-grey-light;
+  border-radius: 10px;
+  color: #333;
+}
