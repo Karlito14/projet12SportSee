@@ -20,7 +20,20 @@
     "/user/{userId}": {
       "get": {
         "tags": ["Utilisateurs"],
-        "summary": "Ce premier endpoint récupère l'identifiant de l'utilisateur, ses informations (prénom, nom et âge), le score du jour (todayScore) et des données clés (calories, macronutriments, etc.).",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": "true",
+            "schema": {
+              "type": "integer",
+              "minimum": "1"
+            },
+            "description": "the user id"
+          }
+        ],
+        "summary": "Informations utilisateur",
+        "description": "Récupère l'identifiant de l'utilisateur, ses informations (prénom, nom et âge), le score du jour (todayScore) et des données clés (calories, macronutriments, etc.).",
         "operationId": "getUser",
         "responses": {
           "200": {
@@ -42,7 +55,20 @@
     "/user/{userId}/activity": {
       "get": {
         "tags": ["Utilisateurs"],
-        "summary": "Récupère l'activité d'un utilisateur jour par jour avec les kilogrammes et les calories",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": "true",
+            "schema": {
+              "type": "integer",
+              "minimum": "1"
+            },
+            "description": "the user id"
+          }
+        ],
+        "summary": "Activité quotidienne",
+        "description": "Récupère l'activité d'un utilisateur jour par jour avec les kilogrammes et les calories",
         "operationId": "getActivity",
         "responses": {
           "200": {
@@ -64,7 +90,20 @@
     "/user/{userId}/average-sessions": {
       "get": {
         "tags": ["Utilisateurs"],
-        "summary": "Récupère la moyenne des sessions d'un utilisateur par jour. La semaine commence le lundi.",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": "true",
+            "schema": {
+              "type": "integer",
+              "minimum": "1"
+            },
+            "description": "the user id"
+          }
+        ],
+        "summary": "Moyenne des sessions journalières",
+        "description": "Récupère la moyenne des sessions d'un utilisateur par jour. La semaine commence le lundi.",
         "operationId": "getSessions",
         "responses": {
           "200": {
@@ -86,7 +125,20 @@
     "/user/{userId}/performance": {
       "get": {
         "tags": ["Utilisateurs"],
-        "summary": "Permet de connaître les performances d'un utilisateur (énergie, endurance, etc.).",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "userId",
+            "required": "true",
+            "schema": {
+              "type": "integer",
+              "minimum": "1"
+            },
+            "description": "the user id"
+          }
+        ],
+        "summary": "Performance utilisateur",
+        "description": "Permet de connaître les performances d'un utilisateur (énergie, endurance, etc.).",
         "operationId": "getPerformance",
         "responses": {
           "200": {
