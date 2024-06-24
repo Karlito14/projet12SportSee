@@ -2,7 +2,7 @@
 
 ## Projet numéro 12 de la formation Openclassrooms Développeur d'Application JavaScript / React
 
-SportSee est une startup dédiée au coaching sportif. Elle possède une applicagion qui permet à l’utilisateur de suivre le nombre de sessions réalisées ainsi que le nombre de calories brûlées.
+SportSee est une startup dédiée au coaching sportif. Elle possède une application qui permet à l’utilisateur de suivre le nombre de sessions réalisées ainsi que le nombre de calories brûlées, de protéines, glucides, lipides consommées.
 
 ### Objectifs
 
@@ -29,6 +29,6 @@ SportSee est une startup dédiée au coaching sportif. Elle possède une applica
 Pour tester le projet :
 
 Cliquez récupérer le [back-end](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard?tab=readme-ov-file) et suivre les instructions du **README** pour le lancer. 
-Clonez ce front end et lancez dasn votre terminal **npm run dev**
+Clonez ce front end et lancez dans votre terminal **npm run dev**
 
 Réalisé par [Carlos Leiroz](https://www.linkedin.com/in/carlos-leiroz/)

@@ -1,13 +1,13 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "description": "<p>API de l'application SportSee</p>",
     "version": "1.0.0",
-    "title": "API de l'application SportSee"
+    "title": "API de l'application SportSee",
+    "description": "<p>Documentation de l'ensemble des routes de l'API de l'application SportSee</p>"
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "http://localhost:3000/user"
     }
   ],
   "tags": [
@@ -17,19 +17,19 @@
     }
   ],
   "paths": {
-    "/user/{userId}": {
+    "/{userId}": {
       "get": {
         "tags": ["Utilisateurs"],
         "parameters": [
           {
             "in": "path",
             "name": "userId",
-            "required": "true",
+            "required": true,
             "schema": {
               "type": "integer",
-              "minimum": "1"
+              "minimum": 1
             },
-            "description": "the user id"
+            "description": "ID de l'utilisateur"
           }
         ],
         "summary": "Informations utilisateur",
@@ -52,19 +52,19 @@
         }
       }
     },
-    "/user/{userId}/activity": {
+    "/{userId}/activity": {
       "get": {
         "tags": ["Utilisateurs"],
         "parameters": [
           {
             "in": "path",
             "name": "userId",
-            "required": "true",
+            "required": true,
             "schema": {
               "type": "integer",
-              "minimum": "1"
+              "minimum": 1
             },
-            "description": "the user id"
+            "description": "ID de l'utilisateur"
           }
         ],
         "summary": "Activité quotidienne",
@@ -87,19 +87,19 @@
         }
       }
     },
-    "/user/{userId}/average-sessions": {
+    "/{userId}/average-sessions": {
       "get": {
         "tags": ["Utilisateurs"],
         "parameters": [
           {
             "in": "path",
             "name": "userId",
-            "required": "true",
+            "required": true,
             "schema": {
               "type": "integer",
-              "minimum": "1"
+              "minimum": 1
             },
-            "description": "the user id"
+            "description": "ID de l'utilisateur"
           }
         ],
         "summary": "Moyenne des sessions journalières",
@@ -122,19 +122,19 @@
         }
       }
     },
-    "/user/{userId}/performance": {
+    "/{userId}/performance": {
       "get": {
         "tags": ["Utilisateurs"],
         "parameters": [
           {
             "in": "path",
             "name": "userId",
-            "required": "true",
+            "required": true,
             "schema": {
               "type": "integer",
-              "minimum": "1"
+              "minimum": 1
             },
-            "description": "the user id"
+            "description": "ID de l'utilisateur"
           }
         ],
         "summary": "Performance utilisateur",

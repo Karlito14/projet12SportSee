@@ -9,6 +9,10 @@ import {
   Rectangle,
 } from 'recharts';
 
+/**
+ * Tableau de jours de la semaine
+ * @type {string[]}
+ */
 const DAYS = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
 
 export const ChartSessions = ({ data }) => {

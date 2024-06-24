@@ -4,7 +4,18 @@ import { BiSwim } from 'react-icons/bi';
 import { MdDirectionsBike } from 'react-icons/md';
 import { LuDumbbell } from 'react-icons/lu';
 
+/**
+ * Taille des icones
+ * @constant
+ * @type {number}
+ */
 const SIZE_ICONS = 32;
+
+/**
+ * Tableau des icones
+ * @constant
+ * @type {React.JSX.Element[]}
+ */
 const ICONS = [
   <GiMeditation key={1} size={SIZE_ICONS} />,
   <BiSwim key={2} size={SIZE_ICONS} />,
