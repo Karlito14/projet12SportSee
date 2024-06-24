@@ -32,6 +32,75 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Renvoi une erreur: can not get user"
+          }
+        }
+      }
+    },
+    "/user/{userId}/activity": {
+      "get": {
+        "tags": ["Utilisateurs"],
+        "summary": "Récupère l'activité d'un utilisateur jour par jour avec les kilogrammes et les calories",
+        "operationId": "getActivity",
+        "responses": {
+          "200": {
+            "description": "Renvoi un objet",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Activity"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Renvoi une erreur: can not get user"
+          }
+        }
+      }
+    },
+    "/user/{userId}/average-sessions": {
+      "get": {
+        "tags": ["Utilisateurs"],
+        "summary": "Récupère la moyenne des sessions d'un utilisateur par jour. La semaine commence le lundi.",
+        "operationId": "getSessions",
+        "responses": {
+          "200": {
+            "description": "Renvoi un objet",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sessions"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Renvoi une erreur: can not get user"
+          }
+        }
+      }
+    },
+    "/user/{userId}/performance": {
+      "get": {
+        "tags": ["Utilisateurs"],
+        "summary": "Permet de connaître les performances d'un utilisateur (énergie, endurance, etc.).",
+        "operationId": "getPerformance",
+        "responses": {
+          "200": {
+            "description": "Renvoi un objet",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Performance"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Renvoi une erreur: can not get user"
           }
         }
       }
@@ -100,6 +169,233 @@
               "carbohydrateCount": 150,
               "lipidCount": 120
             }
+          }
+        }
+      },
+      "Activity": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "integer"
+              },
+              "sessions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SessionActivity"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": {
+            "userId": 18,
+            "sessions": [
+              {
+                "day": "2020-07-01",
+                "kilogram": 70,
+                "calories": 240
+              },
+              {
+                "day": "2020-07-02",
+                "kilogram": 69,
+                "calories": 220
+              },
+              {
+                "day": "2020-07-03",
+                "kilogram": 70,
+                "calories": 280
+              },
+              {
+                "day": "2020-07-04",
+                "kilogram": 70,
+                "calories": 500
+              },
+              {
+                "day": "2020-07-05",
+                "kilogram": 69,
+                "calories": 160
+              },
+              {
+                "day": "2020-07-06",
+                "kilogram": 69,
+                "calories": 162
+              },
+              {
+                "day": "2020-07-07",
+                "kilogram": 69,
+                "calories": 390
+              }
+            ]
+          }
+        }
+      },
+      "Sessions": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "integer"
+              },
+              "sessions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SessionLength"
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": {
+            "userId": 18,
+            "sessions": [
+              {
+                "day": 1,
+                "sessionLength": 30
+              },
+              {
+                "day": 2,
+                "sessionLength": 40
+              },
+              {
+                "day": 3,
+                "sessionLength": 50
+              },
+              {
+                "day": 4,
+                "sessionLength": 30
+              },
+              {
+                "day": 5,
+                "sessionLength": 30
+              },
+              {
+                "day": 6,
+                "sessionLength": 50
+              },
+              {
+                "day": 7,
+                "sessionLength": 50
+              }
+            ]
+          }
+        }
+      },
+      "Performance": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer"
+          },
+          "kind": {
+            "type": "object",
+            "properties": {
+              "1": {
+                "type": "string"
+              },
+              "2": {
+                "type": "string"
+              },
+              "3": {
+                "type": "string"
+              },
+              "4": {
+                "type": "string"
+              },
+              "5": {
+                "type": "string"
+              },
+              "6": {
+                "type": "string"
+              }
+            }
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataPerformance"
+            }
+          }
+        },
+        "example": {
+          "data": {
+            "userId": 18,
+            "kind": {
+              "1": "cardio",
+              "2": "energy",
+              "3": "endurance",
+              "4": "strength",
+              "5": "speed",
+              "6": "intensity"
+            },
+            "data": [
+              {
+                "value": 200,
+                "kind": 1
+              },
+              {
+                "value": 240,
+                "kind": 2
+              },
+              {
+                "value": 80,
+                "kind": 3
+              },
+              {
+                "value": 80,
+                "kind": 4
+              },
+              {
+                "value": 220,
+                "kind": 5
+              },
+              {
+                "value": 110,
+                "kind": 6
+              }
+            ]
+          }
+        }
+      },
+      "SessionActivity": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "string"
+          },
+          "kilogram": {
+            "type": "integer"
+          },
+          "calories": {
+            "type": "integer"
+          }
+        }
+      },
+      "SessionLength": {
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "string"
+          },
+          "sessionLength": {
+            "type": "integer"
+          }
+        }
+      },
+      "DataPerformance": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "integer"
+          },
+          "kind": {
+            "type": "integer"
           }
         }
       }
