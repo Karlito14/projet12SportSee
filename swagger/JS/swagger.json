@@ -1,0 +1,108 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "description": "<p>API de l'application SportSee</p>",
+    "version": "1.0.0",
+    "title": "API de l'application SportSee"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Utilisateurs",
+      "description": "Récupérez les statistiques de chaque utilisateur"
+    }
+  ],
+  "paths": {
+    "/user/{userId}": {
+      "get": {
+        "tags": ["Utilisateurs"],
+        "summary": "Ce premier endpoint récupère l'identifiant de l'utilisateur, ses informations (prénom, nom et âge), le score du jour (todayScore) et des données clés (calories, macronutriments, etc.).",
+        "operationId": "getUser",
+        "responses": {
+          "200": {
+            "description": "Renvoi un objet",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Utilisateur"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Utilisateur": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "userInfos": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string"
+                  },
+                  "lastname": {
+                    "type": "string"
+                  },
+                  "age": {
+                    "type": "integer"
+                  }
+                }
+              },
+              "score": {
+                "type": "number"
+              },
+              "keyData": {
+                "type": "object",
+                "properties": {
+                  "calorieCount": {
+                    "type": "integer"
+                  },
+                  "proteinCount": {
+                    "type": "integer"
+                  },
+                  "carbohydrateCount": {
+                    "type": "integer"
+                  },
+                  "lipidCount": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "example": {
+          "data": {
+            "id": 18,
+            "userInfos": {
+              "firstName": "Cecilia",
+              "lastName": "Ratorez",
+              "age": 34
+            },
+            "score": 0.3,
+            "keyData": {
+              "calorieCount": 2500,
+              "proteinCount": 90,
+              "carbohydrateCount": 150,
+              "lipidCount": 120
+            }
+          }
+        }
+      }
+    }
+  }
+}
