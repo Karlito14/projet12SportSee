@@ -10,10 +10,15 @@ export const Profil = ({ user }) => {
 
   useEffect(() => {
     const getGender = async () => {
-      const gender = await ApiUser.getGender(user.userInfos.firstName);
-      setGender(gender.gender)
+      try {
+        const response = await ApiUser.getGender(user.userInfos.firstName);
+        setGender(response.gender);
+      } catch (error) {
+        console.error(error);
+      }
     };
     getGender();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

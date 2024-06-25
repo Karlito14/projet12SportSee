@@ -57,6 +57,11 @@ export class ApiUser {
     return performance.data;
   }
 
+  /**
+   * @property {Function} getGender Récupère le genre de l'utilisateur
+   * @param {string} name Prénom de l'utilisateur
+   * @returns object
+   */
   static async getGender(name) {
     const options = {
       method: 'GET',
