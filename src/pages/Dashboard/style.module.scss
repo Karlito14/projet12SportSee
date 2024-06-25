@@ -1,5 +1,11 @@
 @use '../../styles/variables';
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .container {
   display: flex;
   justify-content: space-between;

@@ -9,6 +9,7 @@ import { ChartPerformance } from '../../components/ChartPerformance/ChartPerform
 import { ChartScore } from '../../components/ChartScore/ChartScore.jsx';
 import { Spinning } from '../../components/Spinning/Spinning.jsx';
 import { ErrorDisplay } from '../../components/ErrorDisplay/ErrorDisplay.jsx';
+import { ExportCSV } from '../../components/ExportCSV/ExportCSV.jsx';
 
 export const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -57,6 +58,13 @@ export const Dashboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const table = activity?.sessions.map((day, index) => {
+    return {
+      ...day,
+      sessionLength: sessions?.sessions[index].sessionLength,
+    };
+  });
+
   const displaySpinningOrError = (state, height, width) => {
     return state === undefined ? (
       <ErrorDisplay height={height} width={width} />
@@ -67,13 +75,20 @@ export const Dashboard = () => {
 
   return (
     <>
-      <h2 className={style.title}>
-        Bonjour{' '}
-        <span className={style.title__name}>
-          {user && user.userInfos.firstName}
-        </span>
-      </h2>
-      {user && <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>}
+      <div className={style.header}>
+        <div>
+          <h2 className={style.title}>
+            Bonjour{' '}
+            <span className={style.title__name}>
+              {user && user.userInfos.firstName}
+            </span>
+          </h2>
+          {user && (
+            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+          )}
+        </div>
+        {table && <ExportCSV data={table} />}
+      </div>
       <div className={style.content}>
         <div className={style.content__recharts}>
           <div className={style.container}>
