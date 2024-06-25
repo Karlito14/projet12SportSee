@@ -56,4 +56,21 @@ export class ApiUser {
     const performance = await response.json();
     return performance.data;
   }
+
+  static async getGender(name) {
+    const options = {
+      method: 'GET',
+      headers: {
+        'x-rapidapi-key': '6435883dc3mshf8c8f2fcbc0b9b4p10b01djsnef4b42685af4',
+        'x-rapidapi-host': 'genderify3.p.rapidapi.com',
+      },
+    };
+
+    const response = await fetch(
+      `https://genderify3.p.rapidapi.com/genderify?text=${name}`,
+      options
+    );
+    const result = await response.json();
+    return result;
+  }
 }
