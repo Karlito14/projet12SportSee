@@ -23,15 +23,17 @@ export const ChartPerformance = ({ data }) => {
       ...item,
       subject: KINDS[index + 1],
     };
-  });
+  }).reverse();
 
   return (
     <ResponsiveContainer width="30%" height={230} className={style.container}>
-      <RadarChart data={dataUpdated} >
+      <RadarChart data={dataUpdated} innerRadius="5%" outerRadius={window.innerWidth < 1200 ? '60%' : '80%'}>
         <PolarGrid gridType="polygon" radialLines={false} />
         <PolarAngleAxis
           dataKey="subject"
           tick={{ fill: 'white', fontSize: 14 }}
+          tickSize={10}
+          dy={5}
         />
         <PolarRadiusAxis
           tick={false}
