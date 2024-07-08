@@ -24,6 +24,11 @@ SportSee est une startup dédiée au coaching sportif. Elle possède une applica
 - Utilisation du state dans les composants quand c'est nécessaire 
 - Utilisation des props entre les composants 
 
+### Optionnel
+
+- Exporter les données au format CSV
+- Documenter les routes API avec Swagger
+
 ### Tester le projet
 
 Pour tester le projet :
